@@ -53,3 +53,35 @@ console.log(letters2);
 console.log(letters1.join("-")); // Result - a-b-c-d-e-f-g-h-i-j-k-l
 console.log(letters2.join(" ")); // Result - a b c d e f g h i j k l
 console.log(letters2.join(",")); // Result - a,b,c,d,e,f,g,h,i,j,k,l
+
+// Looping Arrays with Methods
+
+// For Of Method
+const numberArrays = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// Using if-else statement
+for (const arrayElement of numberArrays) {
+  if (arrayElement > 0) {
+    console.log(`You have deposited: ${arrayElement}`);
+  } else {
+    console.log(`You have withdraw: ${Math.abs(arrayElement)}`);
+  }
+}
+
+// Using ternary operators
+for (const arrayElement of numberArrays) {
+  arrayElement > 0
+    ? console.log(`You have deposited: ${arrayElement}`)
+    : console.log(`You have withdraw: ${Math.abs(arrayElement)}`);
+}
+
+// Using index, element with entries() method
+for (const arrayElement of numberArrays.entries()) {
+  console.log(arrayElement);
+}
+
+for (const [index, element] of numberArrays.entries()) {
+  element > 0
+    ? console.log(`${index + 1}: You have deposited ${element}`)
+    : console.log(`${index + 1}: You have withdraw ${Math.abs(element)}`);
+}
