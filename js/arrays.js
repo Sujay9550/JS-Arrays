@@ -85,3 +85,32 @@ for (const [index, element] of numberArrays.entries()) {
     ? console.log(`${index + 1}: You have deposited ${element}`)
     : console.log(`${index + 1}: You have withdraw ${Math.abs(element)}`);
 }
+
+// ForEach Method
+
+// Using if-else statement
+numberArrays.forEach((arrayElement) => {
+  if (arrayElement > 0) {
+    console.log(`You have deposited: ${arrayElement}`);
+  } else {
+    console.log(`You have withdraw: ${Math.abs(arrayElement)}`);
+  }
+});
+
+// Using ternary operators
+numberArrays.forEach((arrayElement) =>
+  arrayElement > 0
+    ? console.log(`You have deposited: ${arrayElement}`)
+    : console.log(`You have withdraw: ${Math.abs(arrayElement)}`)
+);
+
+// Using arrayElement, index, array with forEach
+numberArrays.forEach((arrayElement, index, array) => {
+  console.log(index, arrayElement, array); // Result - 0 200 (8) [200, 450, -400, 3000, -650, -130, 70, 1300]
+});
+
+numberArrays.forEach((arrayElement, index, array) => {
+  arrayElement > 0
+    ? console.log(`${index + 1}: You have deposited ${arrayElement}`)
+    : console.log(`${index + 1}: You have withdrawn ${Math.abs(arrayElement)}`);
+});
