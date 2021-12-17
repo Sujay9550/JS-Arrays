@@ -114,3 +114,47 @@ numberArrays.forEach((arrayElement, index, array) => {
     ? console.log(`${index + 1}: You have deposited ${arrayElement}`)
     : console.log(`${index + 1}: You have withdrawn ${Math.abs(arrayElement)}`);
 });
+
+// Map Method - The map method returns a new array
+
+// To convert USD to INR
+const transactions = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const usdToInr = 74.97;
+
+const inrConverter = transactions.map((transaction) => {
+  return transaction * usdToInr;
+});
+
+console.log(inrConverter);
+
+// Example: 1
+const transactionDescription1 = transactions.map((transaction, index) => {
+  if (transaction > 0) {
+    return `${index + 1}: You have deposited ${transaction}`;
+  } else {
+    return `${index + 1}: You have withdraw ${Math.abs(transaction)}`;
+  }
+});
+
+console.log(transactionDescription1);
+
+// Improving the above code
+const transactionDescription2 = transactions.map((transaction, index) => {
+  return `${index + 1}: You have ${
+    transaction > 0 ? "deposited" : "withdraw"
+  } ${Math.abs(transaction)}`;
+});
+
+console.log(transactionDescription2);
+
+// Example: 2
+const multiplier = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const multiplication = 9;
+
+const multiplied = multiplier.map((multiply, index) => {
+  return `${index + 1}: ${multiplication} * ${multiply} = ${
+    multiplication * multiply
+  }`;
+});
+
+console.log(multiplied); // Result - displays the multiplication table of 9
