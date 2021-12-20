@@ -158,3 +158,21 @@ const multiplied = multiplier.map((multiply, index) => {
 });
 
 console.log(multiplied); // Result - displays the multiplication table of 9
+
+// Filter Method - Filter method filters an element that satisfies a certain condition
+
+const transactionEntries = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// Finding deposits in the transactionEntries
+const deposits = transactionEntries.filter((transaction) => {
+  return transaction > 0;
+});
+
+console.log(deposits); // Result - [200, 450, 3000, 70, 1300]
+
+// Finding withdrawals in the transactionEntries
+const withdrawals = transactionEntries.filter((transaction) => {
+  return transaction < 0;
+});
+
+console.log(withdrawals); // Result - [-400, -650, -130]
