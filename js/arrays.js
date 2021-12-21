@@ -176,3 +176,37 @@ const withdrawals = transactionEntries.filter((transaction) => {
 });
 
 console.log(withdrawals); // Result - [-400, -650, -130]
+
+// Reduce Method - This method results in reducing the elements of the array into a single element.
+const balance = transactionEntries.reduce(
+  (accumulator, arrayElement, index, array) => {
+    console.log(accumulator, arrayElement, index, array);
+    return accumulator + arrayElement;
+  },
+  0 // Here 0 is the initial value of the accumulator for the first itertion/loop
+);
+
+console.log(balance); // Result - 3840 (sum of all the elements oin the array)
+
+// Example 1: To find the maximum number in the transactionEntries array
+const maximum = transactionEntries.reduce(
+  (accumulator, arrayElement, index, array) => {
+    return accumulator > arrayElement ? accumulator : arrayElement;
+  },
+  transactionEntries[0]
+);
+console.log(maximum); // Result - 3000
+
+// Example 2: Filter deposits and then convert usd to inr followed by the totalDepositsUsd using optional chaining
+const totalDepositsInr = transactionEntries
+  .filter((transaction) => {
+    return transaction > 0;
+  })
+  .map((transaction) => {
+    return transaction * usdToInr;
+  })
+  .reduce((accumulator, transaction) => {
+    return accumulator + transaction;
+  }, 0);
+
+console.log(totalDepositsInr); // Result - 376349.4
