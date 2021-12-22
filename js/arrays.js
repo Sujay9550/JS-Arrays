@@ -210,3 +210,17 @@ const totalDepositsInr = transactionEntries
   }, 0);
 
 console.log(totalDepositsInr); // Result - 376349.4
+
+// Find Method - This method retrives an element of the array based on the condition. It return only the single value and not the array.
+const teams = [
+  { name: "Mark Johnson", age: 26, job: "Developer" },
+  { name: "Steve Smith", age: 27, job: "Designer" },
+  { name: "Mitchelle Marsh", age: 28, job: "Full Stack Developer" },
+  { name: "Mark Johnson", age: 26, job: "Team Lead" },
+];
+
+const findPerson = teams.find((arrayElement, index, array) => {
+  return arrayElement.name === "Mark Johnson";
+});
+
+console.log(findPerson); // Result - { name: "Mark Johnson", age: 26, job: "Developer" } (bcoz it will return the first matched condition)
