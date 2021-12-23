@@ -224,3 +224,64 @@ const findPerson = teams.find((arrayElement, index, array) => {
 });
 
 console.log(findPerson); // Result - { name: "Mark Johnson", age: 26, job: "Developer" } (bcoz it will return the first matched condition)
+
+// Some and Every Method
+const transactionOne = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// Some Method - Used to test a condition whether it is true or false. Result is either true or false
+const anyDeposits = transactionOne.some(
+  (arrayElement, index, array) => arrayElement > 0
+);
+console.log(anyDeposits); // Result - True (bcoz it checks if any of the arrayElement matches the condition)
+
+// Every Method - This method returns true only if all the elements in the array satisfies the condition
+const everyDeposits = transactionOne.every(
+  (arrayElement, index, array) => arrayElement > 0
+);
+console.log(everyDeposits); // Result - False (bcoz in the array the elements includes positive & negative elements)
+
+// Flat & FlatMap Method
+const nestedArray = [[1, 2, 3], [4, 5, 6], 7, 8];
+const deepNestedArray = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+
+// Flat Method - It is used to merge the elements of the nested array in the single array
+console.log(nestedArray.flat()); // Result - [1, 2, 3, 4, 5, 6, 7, 8]
+console.log(deepNestedArray.flat(1)); // Result - [[1,2], 3, 4, [5, 6], 7, 8]  1 is the depth/level at which the elements will be fetched from the array
+console.log(deepNestedArray.flat(2)); // Result - [1, 2, 3, 4, 5, 6, 7, 8] 1 is the depth/level at which the elements will be fetched from the array
+
+// Example 1: Find the overallTotal of the arr property of the object within array
+const teams1 = [
+  { name: "Mark Johnson", age: 26, job: "Developer", arr: [1, 2, 3, 4, 5] },
+  { name: "Steve Smith", age: 27, job: "Designer", arr: [6, 7, 8, 9, 10] },
+  {
+    name: "Mitchelle Marsh",
+    age: 28,
+    job: "Full Stack Developer",
+    arr: [11, 12, 13, 14, 15],
+  },
+  {
+    name: "Mark Johnson",
+    age: 26,
+    job: "Team Lead",
+    arr: [16, 17, 18, 19, 20],
+  },
+];
+
+const overallTotal1 = teams1
+  .map((arrayElement, index, array) => arrayElement.arr)
+  .flat()
+  .reduce(
+    (accumulator, arrayElement, index, array) => accumulator + arrayElement,
+    0
+  );
+console.log(overallTotal1); // Result - 210
+
+// FlatMap Method - This combines flat and Map method into just one method, which results in good performance (no deep level data fetching)
+const overallTotal2 = teams1
+  .flatMap((arrayElement, index, array) => arrayElement.arr)
+  .reduce(
+    (accumulator, arrayElement, index, array) => accumulator + arrayElement,
+    0
+  );
+
+console.log(overallTotal2);
