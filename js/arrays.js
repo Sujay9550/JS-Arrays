@@ -285,3 +285,22 @@ const overallTotal2 = teams1
   );
 
 console.log(overallTotal2);
+
+// Sorting Arrays - This method mutates the original array. this method converts the data to a string and then processess the result
+
+// Sorting with Strings
+const persons = ["Steve", "Johnson", "David", "Adam"];
+persons.sort();
+console.log(persons); // Result - ['Adam', 'David', 'Johnson', 'Steve']
+
+// Sorting with Numbers
+const sortingOne = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const sortingTwo = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// Sorting Ascending Order
+sortingOne.sort((a, b) => a - b);
+console.log(sortingOne);
+
+// Sorting Descending Order
+sortingTwo.sort((a, b) => b - a);
+console.log(sortingTwo);
