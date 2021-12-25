@@ -304,3 +304,28 @@ console.log(sortingOne);
 // Sorting Descending Order
 sortingTwo.sort((a, b) => b - a);
 console.log(sortingTwo);
+
+// Exercise
+
+// 1: Convert the below string to camelCase string.
+const string1 = "my-short-string";
+
+const camelCase = string1
+  .split("-")
+  .map((arrayElement, index) => {
+    return index === 0
+      ? arrayElement
+      : arrayElement[0].toUpperCase() + arrayElement.slice(1);
+  })
+  .join("");
+console.log(camelCase); // Result - myShortString
+
+// 2: We have an array of strings stringArray. We’d like to have a sorted copy of it, but keep stringArray unmodified. Define a function
+
+let stringArray = ["HTML", "JavaScript", "CSS"];
+
+const sortedArray = (array) => {
+  return array.slice().sort();
+};
+
+console.log(sortedArray(stringArray)); // Result - ['CSS', 'HTML', 'JavaScript']
