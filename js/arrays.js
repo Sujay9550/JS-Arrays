@@ -367,3 +367,87 @@ const sortByAge = (users) => {
 };
 
 console.log(sortByAge(users2));
+
+// 6: Write the function getAverageAge(users) that gets an array of objects with property age and returns the average age.
+let john3 = { name: "John", age: 25 };
+let pete3 = { name: "Pete", age: 30 };
+let mary3 = { name: "Mary", age: 29 };
+
+let users3 = [john3, pete3, mary3];
+
+const getAverageAge = (users) => {
+  return users.reduce((accumulator, arrayElement, index, array) => {
+    return accumulator + arrayElement.age / users.length;
+  }, 0);
+};
+
+console.log(getAverageAge(users3)); // Result - 28 (25+30+29) / 3 = 28
+
+// 7: Create a function that return the unique values of the array
+// Method 1:
+const repeatedArray = ["Dog", "Cat", "Rat", "Cow", "Rabbit", "Dog", "Cat"];
+
+const uniqueArray = (array) => {
+  let results = [];
+
+  for (const x of array) {
+    if (!results.includes(x)) {
+      results.push(x);
+    }
+  }
+
+  return results;
+};
+
+console.log(uniqueArray(repeatedArray)); // Result - ['Dog', 'Cat', 'Rat', 'Cow', 'Rabbit']
+
+// Method 2: Alternate way using Sets
+const uniqueArray1 = (array) => {
+  let result1 = [];
+
+  const unique = new Set(array);
+
+  for (const y of unique.values()) {
+    result1.push(y);
+  }
+
+  return result1;
+};
+
+console.log(uniqueArray1(repeatedArray)); // Result - ['Dog', 'Cat', 'Rat', 'Cow', 'Rabbit']
+
+// 8: Function to find the difference of 2 Arrays
+// Method 1:
+function differenceOf2Arrays(array1, array2) {
+  const temp = [];
+  array1 = array1.toString().split(",").map(Number);
+  array2 = array2.toString().split(",").map(Number);
+
+  for (var i in array1) {
+    if (!array2.includes(array1[i])) temp.push(array1[i]);
+  }
+  for (i in array2) {
+    console.log(array2[i]);
+    if (!array1.includes(array2[i])) temp.push(array2[i]);
+  }
+  return temp.sort((a, b) => a - b);
+}
+
+console.log(differenceOf2Arrays([1, 2, 3], [100, 2, 1, 10])); // Result - [3, 10, 100]
+
+// Method 2:
+const diffArray = (array1, array2) => {
+  const temp = [];
+
+  for (const x of array1) {
+    if (!array2.includes(x)) temp.push(x);
+  }
+
+  for (const y of array2) {
+    if (!array1.includes(y)) temp.push(y);
+  }
+
+  return temp.sort((a, b) => a - b);
+};
+
+console.log(diffArray([1, 2, 3], [100, 1, 2, 10])); // Result - [3, 10, 100]
