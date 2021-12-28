@@ -451,3 +451,81 @@ const diffArray = (array1, array2) => {
 };
 
 console.log(diffArray([1, 2, 3], [100, 1, 2, 10])); // Result - [3, 10, 100]
+
+// 9: Function to sort the following array of objects by Title and Id
+const library = [
+  { author: "Bill Gates", title: "The Road Ahead", libraryID: 1254 },
+  { author: "Steve Jobs", title: "Walter Isaacson", libraryID: 4264 },
+  {
+    author: "Suzanne Collins",
+    title: "Mockingjay: The Final Book of The Hunger Games",
+    libraryID: 3245,
+  },
+];
+
+// Sort by Title
+const sortLibraryByTitle = (array) => {
+  return array.slice().sort((a, b) => {
+    if (a.title < b.title) return -1;
+    if (a.title > b.title) return 1;
+    return 0;
+  });
+};
+
+console.log(sortLibraryByTitle(library));
+
+// Sort by Id
+const sortLibraryById = (array) => {
+  return array.slice().sort((a, b) => a.libraryID - b.libraryID);
+};
+
+console.log(sortLibraryById(library));
+
+// 10: Function to sort the following array of objects by Name, Age and Job
+const usr = [
+  { name: "John", age: 28, job: "Frontend Developer" },
+  { name: "Varun", age: 30, job: "Backend Developer" },
+  { name: "Mathew", age: 25, job: "UI Designer" },
+];
+
+// Sort by Name
+const usrSortByName = (array) => {
+  return array.slice().sort((a, b) => {
+    if (a.name < b.name) return -1;
+    if (a.name > b.name) return 1;
+    return 0;
+  });
+};
+
+console.log(usrSortByName(usr));
+
+// Sort by Age
+const usrSortByAge = (array) => {
+  return array.slice().sort((a, b) => a.age - b.age);
+};
+
+console.log(usrSortByAge(usr));
+
+// Sort by Job
+const usrSortByJob = (array) => {
+  return array.slice().sort((a, b) => {
+    if (a.job < b.job) return -1;
+    if (a.job > b.job) return 1;
+    return 0;
+  });
+};
+
+console.log(usrSortByJob(usr));
+
+// 11: JavaScript function to find the longest common starting substring in a set of strings
+function longest_common_starting_substring(arr1) {
+  const arr = arr1.concat().sort();
+  const a1 = arr[0];
+  const a2 = arr[arr.length - 1];
+  const L = a1.length;
+  let i = 0;
+  while (i < L && a1.charAt(i) === a2.charAt(i)) i++;
+  return a1.substring(0, i);
+}
+
+console.log(longest_common_starting_substring(["go", "google"])); // Result - go
