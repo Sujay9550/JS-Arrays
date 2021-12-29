@@ -529,3 +529,52 @@ function longest_common_starting_substring(arr1) {
 }
 
 console.log(longest_common_starting_substring(["go", "google"])); // Result - go
+
+// 12: JavaScript function to merge two arrays and removes all duplicates elements.
+const ar1 = [1, 2, 3];
+const ar2 = [2, 30, 1];
+
+const mergeArrays = (array1, array2) => {
+  const result = [];
+  const merge = array1.concat(array2);
+  const unique = new Set(merge);
+
+  for (const x of unique.values()) {
+    result.push(x);
+  }
+  return result;
+};
+
+console.log(mergeArrays(ar1, ar2)); // Result - [1, 2, 3, 30]
+
+// 13: JavaScript function to remove a specific element from an array
+const unremovedElArray = [2, 5, 9, 6];
+
+const removeElement = (array, element) => {
+  array.forEach((arrayElement, index, array) => {
+    if (arrayElement === element) {
+      array.splice(index, 1);
+    }
+  });
+
+  return array;
+};
+
+console.log(removeElement(unremovedElArray, 9)); // Result - [2, 5, 6]
+
+// 14: Javascript function to remove a specific element form an array without altering the original array
+const unremovedElArray1 = [4, 5, 6, 7, 8];
+
+const removedElement = (array, element) => {
+  const newArray = array.slice();
+
+  newArray.forEach((arrayElement, index, array) => {
+    if (arrayElement === element) {
+      newArray.splice(index, 1);
+    }
+  });
+
+  return newArray;
+};
+
+console.log(removedElement(unremovedElArray1, 5)); // Result - [4, 6, 7, 8]
