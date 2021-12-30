@@ -578,3 +578,80 @@ const removedElement = (array, element) => {
 };
 
 console.log(removedElement(unremovedElArray1, 5)); // Result - [4, 6, 7, 8]
+
+// 15: JavaScript function to find an array contains a specific element.
+
+const arrayEight = [6, 7, 8, 9, 3];
+
+// Method 1:
+const checkElement1 = (array, element) => {
+  return array.includes(element) ? true : false;
+};
+
+console.log(checkElement1(arrayEight, 8)); // Result - True
+console.log(checkElement1(arrayEight, 1)); // Result - False
+
+// Method 2:
+const checkElement2 = (array, element) => {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === element) {
+      return true;
+    }
+  }
+  return false;
+};
+
+console.log(checkElement2(arrayEight, 9)); // Result - True
+console.log(checkElement2(arrayEight, 2)); // Result - False
+
+// Method 3:
+const checkElement3 = (array, element) => {
+  let result = false;
+  array.forEach((arrayElement, index, array) => {
+    if (arrayElement === element) {
+      result = true;
+    }
+  });
+
+  return result;
+};
+
+console.log(checkElement3(arrayEight, 8)); // Result - True
+console.log(checkElement3(arrayEight, 4)); // Result - False
+
+// Method 4:
+const checkElement4 = (array, element) => {
+  const result = array.some((arrayElement, index, array) => {
+    return arrayElement === element;
+  });
+
+  return result;
+};
+
+console.log(checkElement4(arrayEight, 8)); // Result - True
+console.log(checkElement4(arrayEight, 1)); // Result - False
+
+// 16: JavaScript function to empty an array keeping the original
+const arrayNine = [1, 3, 6, 3, -5];
+console.log(arrayNine);
+
+const emptyArray = (array) => {
+  let newArray = array.slice();
+
+  newArray.length = 0;
+
+  return newArray;
+};
+
+console.log(emptyArray(arrayNine)); // Result []
+console.log(arrayNine); // Result - [1, 3, 6, 3, -5]
+
+// 17: JavaScript function to get a random item from an array
+
+const item = [254, 45, 212, 365, 2543];
+
+const getRandomItem = (array) => {
+  return array[Math.floor(Math.random() * array.length)];
+};
+
+console.log(getRandomItem(item)); // Result - Generates a random item from the item array
