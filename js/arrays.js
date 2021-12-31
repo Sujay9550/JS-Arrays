@@ -655,3 +655,74 @@ const getRandomItem = (array) => {
 };
 
 console.log(getRandomItem(item)); // Result - Generates a random item from the item array
+
+// 18: JavaScript function to filter false, null, 0 and blank values from an array.
+
+const unfiltered = [58, "", "abcd", true, null, false, 0];
+
+const filtered = (array) => {
+  return array.filter((arrayElement, index, array) => {
+    if (
+      arrayElement !== 0 ||
+      arrayElement !== null ||
+      arrayElement !== false ||
+      arrayElement !== ""
+    ) {
+      return arrayElement;
+    }
+  });
+};
+
+console.log(filtered(unfiltered)); // Result - [58, 'abcd', true]
+
+// 19: JavaScript function to generate an array of specified length, filled with integer numbers, increase by one from starting position
+
+const array_range = (start, length) => {
+  const array = new Array(length);
+
+  for (let i = 0; i < length; i++, start++) {
+    array[i] = start;
+  }
+  return array;
+};
+
+console.log(array_range(1, 5)); // Result - [1,2,3,4,5]
+console.log(array_range(-8, 6)); // Result - [-8, -7, -6, -5, -4, -3]
+
+// 20: JavaScript function to generate an array between two integers of 1 step length
+const array_between = (start, end) => {
+  if (start > end) {
+    const array1 = new Array(start - end + 1);
+    for (let i = 0; i < array1.length; i++, start++) {
+      array1[i] = start;
+    }
+    return array1;
+  } else if (end > start) {
+    const array2 = new Array(end - start + 1);
+    for (let j = 0; j < array2.length; j++, start++) {
+      array2[j] = start;
+    }
+    return array2;
+  }
+};
+
+console.log(array_between(1, 5)); // Result - [1,2,3,4,5]
+console.log(array_between(2, 8)); // Result - [2, 3, 4, 5, 6, 7, 8]
+console.log(array_between(-6, 8)); // Result - [-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8]
+console.log(array_between(-4, 4)); // Result - [-4, -3, -2, -1, 0, 1, 2, 3, 4]
+
+// 21: JavaScript function to find the unique elements from two arrays.
+const ar3 = [1, 2, 4, 6, 9];
+const ar4 = [1, 2, 3, 4, 5, 7, 8];
+
+const uniqueArray2 = (array1, array2) => {
+  const result = [];
+  const mergedArray = array1.concat(array2);
+  const unique = new Set(mergedArray);
+  for (const x of unique.values()) {
+    result.push(x);
+  }
+  return result;
+};
+
+console.log(uniqueArray2(ar3, ar4)); // Result - [1, 2, 4, 6, 9, 3, 5, 7, 8]
